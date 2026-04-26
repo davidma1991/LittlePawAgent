@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "enabled": true,
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"]
+    },
+    "git": {
+      "enabled": false,
+      "transport": "stdio",
+      "command": "uvx",
+      "args": ["mcp-server-git"]
+    },
+    "custom-http": {
+      "enabled": false,
+      "transport": "http",
+      "url": "http://localhost:8080/mcp"
+    }
+  }
+}

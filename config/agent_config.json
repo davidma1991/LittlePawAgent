@@ -1,0 +1,29 @@
+{
+  "ollama": {
+    "base_url": "http://localhost:11434",
+    "default_model": "llama3.2"
+  },
+  "tools": {
+    "web_search": {
+      "enabled": true,
+      "searxng_url": "http://localhost:8080"
+    },
+    "file_ops": {
+      "enabled": true,
+      "allowed_paths": ["/tmp"]
+    },
+    "code_exec": {
+      "enabled": true,
+      "timeout": 30
+    },
+    "bash": {
+      "enabled": true,
+      "timeout": 30,
+      "allowed_commands": []
+    },
+    "browser": {
+      "enabled": true,
+      "headless": true
+    }
+  }
+}

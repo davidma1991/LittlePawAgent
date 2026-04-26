@@ -1,7 +1,7 @@
 import uuid
 from typing import Any
 
-from backend.tools.base import ToolDef, ToolResult
+from app.tools.base import ToolDef, ToolResult
 
 
 class ToolRegistry:
@@ -76,11 +76,11 @@ class ToolRegistry:
             )
 
     def register_builtins(self) -> None:
-        from backend.tools.builtin.web_search import make_web_search_tool
-        from backend.tools.builtin.file_ops import make_file_read_tool, make_file_write_tool
-        from backend.tools.builtin.code_exec import make_code_exec_tool
-        from backend.tools.builtin.bash import make_bash_tool
-        from backend.tools.builtin.browser_tool import make_browser_tool
+        from app.tools.builtin.web_search import make_web_search_tool
+        from app.tools.builtin.file_ops import make_file_read_tool, make_file_write_tool
+        from app.tools.builtin.code_exec import make_code_exec_tool
+        from app.tools.builtin.bash import make_bash_tool
+        from app.tools.builtin.browser_tool import make_browser_tool
 
         tools_config = self._config.get("tools", {})
         ollama_config = self._config.get("ollama", {})

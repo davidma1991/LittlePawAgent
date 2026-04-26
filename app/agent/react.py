@@ -1,11 +1,11 @@
 import json
 from typing import Any, AsyncIterator
 
-from backend.agent.base import (
+from app.agent.base import (
     BaseAgent, StreamEvent, ThinkingEvent, ToolStartEvent,
     ToolResultEvent, TokenEvent, DoneEvent, ErrorEvent
 )
-from backend.agent.prompts import REACT_SYSTEM_PROMPT
+from app.agent.prompts import REACT_SYSTEM_PROMPT
 
 
 class ReActAgent(BaseAgent):

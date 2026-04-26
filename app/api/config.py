@@ -3,11 +3,11 @@ from typing import Any
 from fastapi import APIRouter, Request, HTTPException
 from pydantic import BaseModel
 
-from backend.config.loader import (
+from app.config.loader import (
     load_agent_config, save_agent_config,
     load_mcp_servers, save_mcp_servers,
 )
-from backend.llm.ollama import OllamaClient
+from app.llm.ollama import OllamaClient
 
 router = APIRouter()
 

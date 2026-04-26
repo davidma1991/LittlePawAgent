@@ -1,4 +1,4 @@
-from backend.tools.base import ToolDef
+from app.tools.base import ToolDef
 
 
 def make_browser_tool(

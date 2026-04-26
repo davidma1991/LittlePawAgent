@@ -36,18 +36,18 @@ A full-stack, chat-based AI agent powered by **local Ollama LLMs**. No cloud API
 uv sync
 
 # 2. Build the frontend
-cd frontend && npm install && npm run build && cd ..
+cd app/frontend && npm install && npm run build && cd ../..
 
 # 3. Pull an Ollama model (if not already done)
 ollama pull qwen2.5:72b
 
 # 4. Start the server
-uv run uvicorn backend.main:app --reload
+uv run uvicorn app.main:app --reload
 ```
 
 Open **http://localhost:8000** in your browser.
 
-> After making UI changes, rebuild with: `cd frontend && npm run build`
+> After making UI changes, rebuild with: `cd app/frontend && npm run build`
 
 ## Optional Services
 
@@ -85,7 +85,7 @@ Enabled MCP servers connect on startup and their tools appear automatically in t
 
 ## Configuration
 
-### `config/agent_config.json`
+### `app/config/agent_config.json`
 
 ```json
 {
@@ -103,7 +103,7 @@ Enabled MCP servers connect on startup and their tools appear automatically in t
 }
 ```
 
-### `config/mcp_servers.json`
+### `app/config/mcp_servers.json`
 
 Defines MCP server connections. Supports `stdio` (local process) and `http` transports.
 
@@ -111,7 +111,7 @@ Defines MCP server connections. Supports `stdio` (local process) and `http` tran
 
 ```
 LittlePawAgent/
-├── backend/
+├── app/
 │   ├── main.py                  # FastAPI app, serves API + built frontend
 │   ├── api/
 │   │   ├── chat.py              # POST /api/chat/stream  (SSE)
@@ -127,22 +127,21 @@ LittlePawAgent/
 │   │   └── mcp/                 # MCP client manager + adapter
 │   ├── llm/
 │   │   └── ollama.py            # Async Ollama client (streaming, tool calls)
-│   └── config/
-│       └── loader.py            # Load/save config JSON files
-├── frontend/
-│   └── src/
-│       ├── components/
-│       │   ├── Chat/            # ChatWindow, MessageList, MessageBubble, MessageInput
-│       │   ├── Agent/           # ThinkingCard, PlanCard, ToolCallCard
-│       │   └── Sidebar/         # ModelSelector, PlanModeToggle, ToolList, McpServerList
-│       ├── hooks/
-│       │   ├── useChat.ts       # SSE stream → message state
-│       │   └── useConfig.ts     # Config, models, and tools state
-│       └── lib/
-│           └── api.ts           # Fetch wrappers + SSE client
-├── config/
-│   ├── agent_config.json
-│   └── mcp_servers.json
+│   ├── config/
+│   │   ├── loader.py            # Load/save config JSON files
+│   │   ├── agent_config.json    # Ollama URL, model, tool settings
+│   │   └── mcp_servers.json     # MCP server definitions
+│   └── frontend/                # React + Vite frontend source
+│       └── src/
+│           ├── components/
+│           │   ├── Chat/        # ChatWindow, MessageList, MessageBubble, MessageInput
+│           │   ├── Agent/       # ThinkingCard, PlanCard, ToolCallCard
+│           │   └── Sidebar/     # ModelSelector, PlanModeToggle, ToolList, McpServerList
+│           ├── hooks/
+│           │   ├── useChat.ts   # SSE stream → message state
+│           │   └── useConfig.ts # Config, models, and tools state
+│           └── lib/
+│               └── api.ts       # Fetch wrappers + SSE client
 └── pyproject.toml
 ```
 

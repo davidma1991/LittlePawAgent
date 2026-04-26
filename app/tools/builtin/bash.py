@@ -1,6 +1,6 @@
 import asyncio
 import os
-from backend.tools.base import ToolDef
+from app.tools.base import ToolDef
 
 
 async def _run_bash(command: str, timeout: int) -> dict:

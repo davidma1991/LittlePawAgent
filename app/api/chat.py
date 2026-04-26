@@ -5,9 +5,9 @@ from fastapi import APIRouter, Request
 from pydantic import BaseModel
 from sse_starlette.sse import EventSourceResponse
 
-from backend.agent.react import ReActAgent
-from backend.agent.plan_execute import PlanExecuteAgent
-from backend.llm.ollama import OllamaClient
+from app.agent.react import ReActAgent
+from app.agent.plan_execute import PlanExecuteAgent
+from app.llm.ollama import OllamaClient
 
 router = APIRouter()
 

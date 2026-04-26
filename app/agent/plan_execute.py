@@ -1,12 +1,12 @@
 import json
 from typing import Any, AsyncIterator
 
-from backend.agent.base import (
+from app.agent.base import (
     BaseAgent, StreamEvent, ThinkingEvent, PlanEvent, PlanStep,
     PlanStepStartEvent, PlanStepDoneEvent, ToolStartEvent,
     ToolResultEvent, TokenEvent, DoneEvent, ErrorEvent
 )
-from backend.agent.prompts import (
+from app.agent.prompts import (
     PLAN_EXECUTE_SYSTEM_PROMPT, PLANNER_PROMPT, SYNTHESIZER_PROMPT, STEP_PROMPT
 )
 

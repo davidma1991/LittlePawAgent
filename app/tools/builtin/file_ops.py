@@ -1,5 +1,5 @@
 from pathlib import Path
-from backend.tools.base import ToolDef
+from app.tools.base import ToolDef
 
 
 def _is_allowed_path(file_path: str, allowed_paths: list[str]) -> bool:

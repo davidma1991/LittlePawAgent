@@ -1,5 +1,5 @@
 from typing import Any
-from backend.tools.base import ToolDef
+from app.tools.base import ToolDef
 
 
 def mcp_tool_to_tooldef(server_name: str, mcp_tool, session) -> ToolDef:

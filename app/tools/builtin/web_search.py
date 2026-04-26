@@ -1,5 +1,5 @@
 import httpx
-from backend.tools.base import ToolDef
+from app.tools.base import ToolDef
 
 
 async def _web_search(query: str, searxng_url: str, num_results: int = 5) -> list[dict]:

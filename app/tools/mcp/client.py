@@ -77,7 +77,7 @@ class MCPClientManager:
             raise RuntimeError(f"Failed to connect HTTP MCP server '{name}': {e}") from e
 
     async def _register_server_tools(self, name: str, session) -> None:
-        from backend.tools.mcp.adapter import mcp_tool_to_tooldef
+        from app.tools.mcp.adapter import mcp_tool_to_tooldef
         tools_response = await session.list_tools()
         for tool in tools_response.tools:
             tool_def = mcp_tool_to_tooldef(name, tool, session)

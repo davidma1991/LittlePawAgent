@@ -2,7 +2,7 @@ import asyncio
 import sys
 import tempfile
 import os
-from backend.tools.base import ToolDef
+from app.tools.base import ToolDef
 
 
 async def _run_python(code: str, timeout: int) -> dict:

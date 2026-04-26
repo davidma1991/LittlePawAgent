@@ -7,13 +7,13 @@ from fastapi.responses import FileResponse
 
 load_dotenv()
 
-from backend.api.chat import router as chat_router
-from backend.api.config import router as config_router
-from backend.tools.registry import ToolRegistry
-from backend.tools.mcp.client import MCPClientManager
-from backend.config.loader import load_agent_config, load_mcp_servers
+from app.api.chat import router as chat_router
+from app.api.config import router as config_router
+from app.tools.registry import ToolRegistry
+from app.tools.mcp.client import MCPClientManager
+from app.config.loader import load_agent_config, load_mcp_servers
 
-FRONTEND_DIST = Path(__file__).parent.parent / "frontend" / "dist"
+FRONTEND_DIST = Path(__file__).parent / "frontend" / "dist"
 
 
 @asynccontextmanager

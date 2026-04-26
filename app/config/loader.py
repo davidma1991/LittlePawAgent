@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 from typing import Any
 
-CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
+CONFIG_DIR = Path(__file__).parent
 AGENT_CONFIG_PATH = CONFIG_DIR / "agent_config.json"
 MCP_SERVERS_PATH = CONFIG_DIR / "mcp_servers.json"
 

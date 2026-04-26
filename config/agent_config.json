@@ -5,7 +5,7 @@
   },
   "tools": {
     "web_search": {
-      "enabled": false,
+      "enabled": true,
       "searxng_url": "http://localhost:8080"
     },
     "file_ops": {

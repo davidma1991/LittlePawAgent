@@ -39,7 +39,7 @@ uv sync
 cd frontend && npm install && npm run build && cd ..
 
 # 3. Pull an Ollama model (if not already done)
-ollama pull llama3.2
+ollama pull qwen2.5:72b
 
 # 4. Start the server
 uv run uvicorn backend.main:app --reload
@@ -53,13 +53,16 @@ Open **http://localhost:8000** in your browser.
 
 ### Web Search — SearXNG
 
-The `web_search` tool requires a local [SearXNG](https://searxng.github.io/searxng/) instance:
+The `web_search` tool requires a local [SearXNG](https://searxng.github.io/searxng/) instance. It is **disabled by default** — enable it after starting SearXNG:
 
 ```bash
 docker run -d -p 8080:8080 searxng/searxng
 ```
 
-Then ensure `config/agent_config.json` has `"searxng_url": "http://localhost:8080"`.
+Then in `config/agent_config.json` set:
+```json
+"web_search": { "enabled": true, "searxng_url": "http://localhost:8080" }
+```
 
 ### MCP Servers
 

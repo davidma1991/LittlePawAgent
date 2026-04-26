@@ -1,12 +1,10 @@
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any, AsyncIterator
 
 
-@dataclass
-class StreamEvent:
+class StreamEvent(ABC):
     """Base event type for SSE streaming."""
-    type: str
 
     def to_dict(self) -> dict[str, Any]:
         raise NotImplementedError
